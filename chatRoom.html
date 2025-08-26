@@ -37,7 +37,6 @@
       
       <button id="scrollToBottomBtn" class="scroll-to-bottom-btn" onclick="scrollToBottom()" style="display: none;">
         <span class="scroll-icon">↓</span>
-        <span class="scroll-text">New Messages</span>
       </button>
       
       <div class="input-area">
@@ -114,7 +113,7 @@
     });
 
     // --- WebSocket + WebRTC logic ---
-    const ws = new WebSocket("ws://13.234.42.145:8765");
+    const ws = new WebSocket("ws://43.205.241.193:8765");
     let localId;
     const peers = {};
     const peerNames = {};
