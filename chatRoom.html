@@ -25,6 +25,10 @@
         <button class="copy-btn" id="copyBtn">Copy</button>
       </div>
 
+      
+      <!-- Download chat button -->
+      <button id="downloadBtn" class="download-btn" title="Download chat log">Download</button>
+
         <a id="backBtn" class="chat-back-btn">← Back</a>      
     </div>
 
@@ -113,7 +117,7 @@
     });
 
     // --- WebSocket + WebRTC logic ---
-    const ws = new WebSocket("ws://43.205.241.193:8765");
+    const ws = new WebSocket("ws://65.2.182.6:8765");
     let localId;
     const peers = {};
     const peerNames = {};
@@ -355,6 +359,20 @@
     setTimeout(updateScrollButton, 500);
 
     window.addEventListener('load', () => messageInput.focus());
+
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const chatContent = Array.from(document.querySelectorAll('.message, .system-message'))
+        .map(msg => msg.textContent.trim())
+        .join('\n');
+
+      const blob = new Blob([chatContent], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `chat-log-${localRoom}.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
   </script>
 </body>
 </html>
