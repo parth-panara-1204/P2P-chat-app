@@ -392,6 +392,7 @@ body {
   margin: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  position: relative;
 }
 
 .header {
@@ -499,7 +500,7 @@ body {
 .messages {
   flex: 1;
   overflow-y: auto; /* Only show scrollbar when needed */
-  padding: 10px;
+  padding: 10px 18px 10px 10px;
   background: #f8f9fa;
   border-radius: 15px;
   display: flex;
@@ -617,7 +618,7 @@ body {
   gap: 10px;
   align-items: flex-end;
   background: white;
-  padding: 15px;
+  padding: 15px 18px 15px 15px;
   border-radius: 15px;
   border: 1px solid #e1e5e9;
 }
@@ -700,38 +701,39 @@ body {
 }
 
 .scroll-to-bottom-btn {
-  position: fixed;
-  bottom: 100px;
-  right: 30px;
+  position: absolute;
+  /* place above input/send area */
+  bottom: 86px;
+  right: 26px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   border: none;
-  padding: 12px 18px;
-  border-radius: 25px;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 700;
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-  transition: all 0.3s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.25s ease;
   z-index: 1000;
   animation: fadeInUp 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-width: 140px;
   justify-content: center;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .scroll-to-bottom-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 36px rgba(102, 126, 234, 0.45);
   background: linear-gradient(135deg, #5a6fd8, #6a4190);
 }
 
 .scroll-to-bottom-btn:active {
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1);
 }
 
 .scroll-icon {
@@ -741,6 +743,29 @@ body {
 
 .scroll-text {
   font-size: 0.85rem;
+}
+
+/* ===== DOWNLOAD BUTTON STYLES ===== */
+.download-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #5a6fd8, #6a4190);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.download-btn:active {
+  transform: translateY(0);
 }
 
 /* ===== RESPONSIVE STYLES ===== */
@@ -804,11 +829,12 @@ body {
   }
   
   .scroll-to-bottom-btn {
-    bottom: 80px;
-    right: 20px;
-    padding: 10px 15px;
-    font-size: 0.8rem;
-    min-width: 120px;
+    bottom: 76px;
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    font-size: 1rem;
   }
   
   .scroll-icon {
@@ -818,4 +844,4 @@ body {
   .scroll-text {
     font-size: 0.75rem;
   }
-} 
+}
