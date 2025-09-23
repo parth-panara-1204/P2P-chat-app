@@ -96,12 +96,18 @@
 
     function joinRoom() {
       const code = document.getElementById('roomCodeInput').value.trim().toUpperCase();
-      if (code) {
-        closeModal();
-        goToChat(code);
-      } else {
+      // Validate room code format (alphanumeric, 3-10 characters)
+      if (!code) {
         document.getElementById('roomCodeInput').focus();
+        return;
       }
+      if (!/^[A-Z0-9]{3,10}$/.test(code)) {
+        alert('Room code must be 3-10 alphanumeric characters');
+        document.getElementById('roomCodeInput').focus();
+        return;
+      }
+      closeModal();
+      goToChat(code);
     }
 
     function createRoom() {

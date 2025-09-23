@@ -1,13 +1,12 @@
 [project]
-name = "temp"
+name = "p2p-chat-app"
 version = "0.1.0"
-description = "Add your description here"
+description = "A peer-to-peer chat application using WebRTC for direct messaging and WebSockets for signaling"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "aiohttp>=3.12.13",
     "aiortc>=1.13.0",
-    "asyncio>=3.4.3",
     "requests>=2.32.4",
     "websockets>=15.0.1",
 ]
